@@ -1,44 +1,45 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { Heart, Users, Sparkle } from "@phosphor-icons/react"
-import { cn } from "@/lib/utils"
-
-const daycarePhotos = [
-  {
-    id: "book",
-    src: "/daycare/Book.jpg",
-    label: "Story Time Haven",
-    helpText: "Check public/daycare/Book.jpg"
-  },
-  {
-    id: "food",
-    src: "/daycare/food.jpg",
-    label: "Healthy Bites",
-    helpText: "Check public/daycare/food.jpg"
-  },
-  {
-    id: "outside",
-    src: "/daycare/outside.jpg",
-    label: "Sunshine Play Yard",
-    helpText: "Check public/daycare/outside.jpg"
-  },
-  {
-    id: "animals",
-    src: "/daycare/animals.jpg",
-    label: "Animal Friends Corner",
-    helpText: "Check public/daycare/animals.jpg"
-  },
-  {
-    id: "play-area",
-    src: "/daycare/play%20area.jpg",
-    label: "Imagination Station",
-    helpText: "Check public/daycare/play area.jpg"
-  }
-]
-
+import { assetPath, cn } from "@/lib/utils"
 export function HomePage() {
   const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({})
+  const daycarePhotos = useMemo(
+    () => [
+      {
+        id: "book",
+        src: assetPath("daycare/Book.jpg"),
+        label: "Story Time Haven",
+        helpText: "Check public/daycare/Book.jpg"
+      },
+      {
+        id: "food",
+        src: assetPath("daycare/food.jpg"),
+        label: "Healthy Bites",
+        helpText: "Check public/daycare/food.jpg"
+      },
+      {
+        id: "outside",
+        src: assetPath("daycare/outside.jpg"),
+        label: "Sunshine Play Yard",
+        helpText: "Check public/daycare/outside.jpg"
+      },
+      {
+        id: "animals",
+        src: assetPath("daycare/animals.jpg"),
+        label: "Animal Friends Corner",
+        helpText: "Check public/daycare/animals.jpg"
+      },
+      {
+        id: "play-area",
+        src: assetPath("daycare/play area.jpg"),
+        label: "Imagination Station",
+        helpText: "Check public/daycare/play area.jpg"
+      }
+    ],
+    []
+  )
 
   const containerVariants = {
     hidden: { opacity: 0 },
