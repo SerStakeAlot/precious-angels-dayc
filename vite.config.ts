@@ -7,9 +7,12 @@ import createIconImportProxy from "@github/spark/vitePhosphorIconProxyPlugin";
 import { resolve } from 'path'
 
 const projectRoot = process.env.PROJECT_ROOT || import.meta.dirname
+const repoBasePath = "/precious-angels-dayc/"
+const resolvedBase = process.env.VITE_BASE_PATH ?? (process.env.NODE_ENV === "production" ? repoBasePath : "/")
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: resolvedBase,
   plugins: [
     react(),
     tailwindcss(),

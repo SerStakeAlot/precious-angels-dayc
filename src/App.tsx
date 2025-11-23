@@ -4,6 +4,7 @@ import { HomePage } from "@/components/HomePage"
 import { AboutPage } from "@/components/AboutPage"
 import { ContactPage } from "@/components/ContactPage"
 import { Toaster } from "@/components/ui/sonner"
+import { MobileActionBar } from "@/components/MobileActionBar"
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home")
@@ -31,6 +32,7 @@ function App() {
           <p className="text-sm">Where Every Child is Treasured 👼</p>
         </div>
       </footer>
+      <MobileActionBar onNavigate={setCurrentPage} />
       <Toaster />
     </div>
   )
